@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECECE3"
+    android:layout_marginBottom="130dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragmentManage.myFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/myFragment_nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/myFragment_ImageView_hearder"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="15dp"
+                app:cardCornerRadius="10dp"
+                android:src="@drawable/draw4"
+                android:layout_marginStart="15dp"/>
+
+            <TextView
+                android:id="@+id/myFragment_MyName"
+                android:layout_width="wrap_content"
+                android:text="睡到自然醒"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/myFragment_ImageView_hearder"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="18dp"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"/>
+
+            <TextView
+                android:id="@+id/myFragment_TextView_RefineInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="完善实名信息"
+                app:layout_constraintStart_toEndOf="@id/myFragment_ImageView_hearder"
+                android:layout_marginStart="10dp"
+                app:layout_constraintTop_toBottomOf="@id/myFragment_MyName"
+                android:layout_marginTop="8dp"
+                android:textSize="12sp"/>
+
+            <ImageButton
+                android:id="@+id/myFragment_ImageView_Message"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="#00ffffff"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/img_5"
+                app:layout_constraintTop_toTopOf="@id/myFragment_MyName" />
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintTop_toTopOf="@id/myFragment_MyName"
+                app:layout_constraintEnd_toStartOf="@id/myFragment_ImageView_Message"
+                android:src="@drawable/img_15"
+                android:background="#00ffffff"
+                android:layout_marginEnd="10dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/background3"
+                app:layout_constraintTop_toBottomOf="@id/myFragment_ImageView_hearder">
+
+                <ImageView
+                    android:id="@+id/image1"
+                    android:layout_width="140dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/img_17"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/background2"
+                    android:text="免费膨胀"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/image1"
+                    android:layout_marginBottom="9dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/image_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/con_1"
+                android:src="@drawable/img_18"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/background1"
+                android:layout_margin="10dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_2"
+                android:layout_width="match_parent"
+                app:cardCornerRadius="8dp"
+                android:layout_margin="10dp"
+                app:layout_constraintTop_toBottomOf="@id/image_1"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="我的收藏"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_12"/>
+
+                    <ImageView
+                        android:layout_marginStart="20dp"
+                        android:layout_width="80dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_13"/>
+
+                    <ImageView
+                        android:layout_marginStart="20dp"
+                        android:layout_width="80dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_10"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:textSize="13sp"
+                    android:background="#99FDFDFA"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="254dp"
+                    android:text="查看更多＞"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/imageView_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_19"
+                android:background="@drawable/background1"
+                app:layout_constraintTop_toBottomOf="@id/card_2"
+                android:layout_marginTop="8dp"
+                android:layout_margin="10dp"/>
+
+            <ImageButton
+                android:id="@+id/imagebutton_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:src="@drawable/img_20"
+                android:scaleType="centerInside"
+                android:background="@drawable/background1"
+                app:layout_constraintTop_toBottomOf="@id/imageView_2"/>
+
+            <ImageView
+                android:id="@+id/imageView_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/imagebutton_3"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/img_21"
+                android:layout_margin="10dp"
+                android:background="@drawable/background1"/>
+
+            <ImageView
+                android:id="@+id/imageView_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/imageView_3"
+                android:layout_margin="10dp"/>
+
+            <ImageView
+                android:id="@+id/imageVIew_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/imageView_4"
+                android:layout_margin="10dp"
+                android:src="@drawable/img_22"
+                android:background="@drawable/background1"/>
+
+            <TextView
+                android:id="@+id/textview_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/imageVIew_5"
+                android:layout_marginTop="20dp"
+                android:text="你可能还喜欢"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_bias="0.5"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:src="@drawable/line"
+                app:layout_constraintTop_toBottomOf="@id/imageVIew_5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/textview_2"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/myFragment_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/textview_2"
+                android:layout_marginTop="5dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/myFragment_floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/img_16"
+        android:backgroundTint="@color/white"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/myFragment_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="睡到自然醒"
+        app:titleMarginStart="100dp"
+        android:background="#ECECE3"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/myFragment_ImageView_Message_Toolbar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#00ffffff"
+            android:src="@drawable/img_5" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img_15"
+            android:background="#00ffffff" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

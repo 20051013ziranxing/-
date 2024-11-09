@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@drawable/blue_gradient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityManage.ShopSelect">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/shopSelectA_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00ffffff"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:layout_marginStart="90dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#00ffffff"
+            android:src="@drawable/img_23"/>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#00ffffff"
+            android:src="@drawable/img_24"/>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#00ffffff"
+            android:src="@drawable/img_25"/>
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:text="拼单"
+            android:textColor="@color/white"
+            android:background="@drawable/button_background"/>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img_26"
+            android:background="#00ffffff"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageButton
+        android:id="@+id/shopSelectA_imageButton_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toBottomOf="@id/shopSelectA_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="10dp"
+        android:src="@drawable/img_28"
+        android:scaleType="fitXY"/>
+
+    <ImageView
+        android:id="@+id/shopSelectA_image_1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/img_10"
+        app:layout_constraintTop_toBottomOf="@id/shopSelectA_imageButton_1"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/shopSelectA_imageButton_1"
+        app:layout_constraintStart_toEndOf="@id/shopSelectA_image_1"
+        android:text="兰湘子·湘菜小炒（长安GOGO街区店）"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+        android:layout_marginEnd="10dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/shopSelectA_image_1"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/shopSelectA_tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shopSelectA_image_1"
+        android:layout_marginTop="15dp"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/shopSelectA_viewPager2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/shopSelectA_tableLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

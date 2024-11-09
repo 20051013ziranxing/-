@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/intent_RecyclerView1_ImageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/img_10"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/intent_RecyclerView1_shopName"
+        android:layout_width="80dp"
+        android:text="兰湘子·湘菜小炒"
+        android:textColor="@color/black"
+        android:maxLines="1"
+        android:textSize="17sp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/intent_RecyclerView1_ImageView"/>
+
+    <TextView
+        android:id="@+id/intent_RecyclerView1_buyCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="买过一次"
+        android:textColor="#514F4F"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/intent_RecyclerView1_shopName"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

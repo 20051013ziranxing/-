@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="130dp"
+    android:layout_height="match_parent"
+    android:background="@color/yellow"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragmentManage.indentFragment">
+
+    <TextView
+        android:id="@+id/textView_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="18dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="订单"/>
+
+    <ImageButton
+        android:id="@+id/intent_xiaoxi"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/img_5"
+        android:background="#00ffffff"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/intent_search"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="18dp"
+        android:background="#00ffffff"
+        android:src="@drawable/img_6"
+        app:layout_constraintEnd_toStartOf="@id/intent_xiaoxi"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="搜索外卖/跑腿/电商订单"
+        android:textColor="#7A7E80"
+        app:layout_constraintEnd_toStartOf="@id/intent_xiaoxi"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="0dp"
+        android:visibility="gone"
+        android:background="@drawable/intent_fragment_search"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_1"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:cardCornerRadius="13dp"
+                app:layout_constraintTop_toBottomOf="@id/textView_1"
+                android:layout_height="wrap_content"
+                tools:ignore="NotSibling">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:padding="10dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="买过的店"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:textSize="20sp"/>
+
+                    <Button
+                        android:id="@+id/indent_search_more_shop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="#00ffffff"
+                        android:textColor="#787F80"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="查看更多商家>" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        app:layout_constraintTop_toBottomOf="@id/indent_search_more_shop"
+                        android:id="@+id/intent_recyclerView1"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content"
+                        tools:ignore="NotSibling" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/intent_tablelayout"
+                android:layout_width="match_parent"
+                app:tabIndicatorColor="@color/yellow"
+                app:tabIndicatorHeight="2dp"
+                app:tabGravity="fill"
+                android:background="@color/gray"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/cardView"
+                android:layout_height="wrap_content"/>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/intent_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray"
+                app:layout_constraintTop_toBottomOf="@+id/intent_tablelayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
