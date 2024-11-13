@@ -158,14 +158,14 @@
                 </LinearLayout>
 
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="78dp"
                     android:layout_height="60dp"
-                    android:textSize="13sp"
-                    android:background="#99FDFDFA"
+                    android:layout_marginStart="254dp"
                     android:layout_marginTop="40dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginStart="254dp"
-                    android:text="查看更多＞"/>
+                    android:background="#99FDFDFA"
+                    android:text="查看更多＞"
+                    android:textSize="13sp" />
 
             </androidx.cardview.widget.CardView>
 

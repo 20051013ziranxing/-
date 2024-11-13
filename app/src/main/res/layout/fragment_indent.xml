@@ -37,21 +37,37 @@
         android:layout_marginTop="18dp"
         android:background="#00ffffff"
         android:src="@drawable/img_6"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@id/intent_xiaoxi"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:layout_width="300dp"
+    <LinearLayout
+        android:id="@+id/layoutLinear"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="搜索外卖/跑腿/电商订单"
-        android:textColor="#7A7E80"
+        android:padding="12dp"
+        android:visibility="gone"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/intent_fragment_search"
         app:layout_constraintEnd_toStartOf="@id/intent_xiaoxi"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="0dp"
-        android:visibility="gone"
-        android:background="@drawable/intent_fragment_search"/>
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/img_6"/>
+
+        <TextView
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="搜索外卖/跑腿/电商订单"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/intent_fragment_nestedScrollView"
         android:layout_width="match_parent"
         app:layout_constraintTop_toBottomOf="@id/textView_1"
         android:layout_height="wrap_content">

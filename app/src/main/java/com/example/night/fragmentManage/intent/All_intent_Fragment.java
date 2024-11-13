@@ -3,12 +3,17 @@ package com.example.night.fragmentManage.intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.night.Adapter.IntentFragmentRecyclerViewAdapter2;
+import com.example.night.Bean.PersonalHistory;
 import com.example.night.R;
+import com.example.night.presenter.PersonalHistoryPresenter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +21,8 @@ import com.example.night.R;
  * create an instance of this fragment.
  */
 public class All_intent_Fragment extends Fragment {
+    RecyclerView recyclerView;
+    PersonalHistoryPresenter personalHistoryPresenter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,7 +67,15 @@ public class All_intent_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_all_intent_, container, false);
+        View view = inflater.inflate(R.layout.fragment_all_intent_, container, false);
+        recyclerView = view.findViewById(R.id.recycler);
+        personalHistoryPresenter = new PersonalHistoryPresenter(this);
+        PersonalHistory personalHistory = personalHistoryPresenter.getPersonalHistory();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        IntentFragmentRecyclerViewAdapter2 intentFragmentRecyclerViewAdapter2 = new IntentFragmentRecyclerViewAdapter2(personalHistory);
+        recyclerView.setAdapter(intentFragmentRecyclerViewAdapter2);
+        return view;
     }
 }

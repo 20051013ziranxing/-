@@ -2,13 +2,24 @@ package com.example.night.fragmentManage.shop;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.night.Adapter.ShopMealFAdapter;
+import com.example.night.Adapter.ShopMealFAdapter2;
+import com.example.night.Bean.ShopMessage1;
 import com.example.night.R;
+import com.example.night.SQLiteHelper.model.shopMessageModel;
+import com.example.night.presenter.shopMealFPresenter;
+import com.google.android.material.tabs.TabLayout;
 import com.youth.banner.Banner;
 import com.youth.banner.adapter.BannerAdapter;
 import com.youth.banner.adapter.BannerImageAdapter;
@@ -24,7 +35,12 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class ShopMealFragment extends Fragment {
+    final static String TAG = "nightAAA";
     Banner banner;
+    ShopMessage1 shopMessage1;
+    RecyclerView recyclerView_classify;
+    RecyclerView recyclerView_mael2;
+    shopMealFPresenter shopMealFPresenter;
     List<Integer> imageViewList;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -68,10 +84,37 @@ public class ShopMealFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shop_meal, container, false);
+        shopMealFPresenter = new shopMealFPresenter(this);
         banner = view.findViewById(R.id.shopMealFragment_banner);
+
+        recyclerView_classify = view.findViewById(R.id.shopMealFragment_RecyclerView1);
+        recyclerView_mael2 = view.findViewById(R.id.shopMealFragment_RecyclerView2);
+        shopMessage1 = shopMealFPresenter.getShopMessage1();
+        Log.d(TAG, String.valueOf(shopMessage1.getSpeciesMeal().size()));
+
+        ShopMealFAdapter2 shopMealFAdapter2 = new ShopMealFAdapter2(shopMessage1);
+        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(getContext());
+        linearLayoutManager2.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView_mael2.setLayoutManager(linearLayoutManager2);
+        recyclerView_mael2.setAdapter(shopMealFAdapter2);
+
+        ShopMealFAdapter shopMealFAdapter = new ShopMealFAdapter(shopMessage1);
+        shopMealFAdapter.setOnItemClickListener(new ShopMealFAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Log.d(TAG, "我点击了？？？aaaaaaa"  + position);
+                recyclerView_mael2.scrollToPosition(position);
+            }
+        });
+
+        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getContext());
+        linearLayoutManager1.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView_classify.setLayoutManager(linearLayoutManager1);
+        recyclerView_classify.setAdapter(shopMealFAdapter);
+
+
         initData();
-        banner.setAdapter(new BannerImageAdapter<Integer>(imageViewList
-        ) {
+        banner.setAdapter(new BannerImageAdapter<Integer>(imageViewList) {
             @Override
             public void onBindView(BannerImageHolder holder, Integer data, int position, int size) {
                 holder.imageView.setImageResource(data);

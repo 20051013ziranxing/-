@@ -4,20 +4,26 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 
+import com.example.night.Adapter.IntentFragmentRecyclerAdapter1;
 import com.example.night.Adapter.intentFragmentAdapter;
+import com.example.night.Bean.PersonalHistory;
 import com.example.night.R;
 import com.example.night.fragmentManage.intent.All_intent_Fragment;
 import com.example.night.fragmentManage.intent.intent_refund_Fragment;
 import com.example.night.fragmentManage.intent.wait_evaluateFragment;
+import com.example.night.presenter.PersonalHistoryPresenter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -30,6 +36,10 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class indentFragment extends Fragment {
+    NestedScrollView nestedScrollView;
+    LinearLayout layout;
+    PersonalHistoryPresenter personalHistoryPresenter;
+    PersonalHistory personalHistory;
     TabLayout tableLayout;
     ViewPager2 viewPager2;
     RecyclerView recyclerView_boughtShop;
@@ -84,9 +94,29 @@ public class indentFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initData();
+        personalHistoryPresenter = new PersonalHistoryPresenter(this);
+        personalHistory = personalHistoryPresenter.getPersonalHistory();
+        nestedScrollView = view.findViewById(R.id.intent_fragment_nestedScrollView);
+        layout = view.findViewById(R.id.layoutLinear);
+        nestedScrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (scrollY > 30) {
+                    layout.setVisibility(View.VISIBLE);
+                } else {
+                    layout.setVisibility(View.GONE);
+                }
+            }
+        });
+
         tableLayout = view.findViewById(R.id.intent_tablelayout);
         viewPager2 = view.findViewById(R.id.intent_viewpager);
         recyclerView_boughtShop = view.findViewById(R.id.intent_recyclerView1);
+        IntentFragmentRecyclerAdapter1 intentFragmentRecyclerAdapter1 = new IntentFragmentRecyclerAdapter1(personalHistory);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerView_boughtShop.setLayoutManager(linearLayoutManager);
+        recyclerView_boughtShop.setAdapter(intentFragmentRecyclerAdapter1);
 
         intentFragmentAdapter = new intentFragmentAdapter(getActivity(), viewPagerSubclass);
         viewPager2.setAdapter(intentFragmentAdapter);

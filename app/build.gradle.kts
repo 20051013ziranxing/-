@@ -42,6 +42,7 @@ dependencies {
     implementation ("io.github.youth5201314:banner:2.2.3")
     implementation ("com.github.bumptech.glide:glide:4.15.1")
     implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.google.android.material:material:1.5.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
