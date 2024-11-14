@@ -43,7 +43,7 @@
 
     <TextView
         android:id="@+id/textView_mealPrice"
-        android:text="18"
+        android:text="18  "
         android:textSize="20sp"
         android:textColor="#E43434"
         android:layout_width="wrap_content"
@@ -70,6 +70,7 @@
         app:layout_constraintBottom_toBottomOf="@id/textView_mealPrice"/>
 
     <ImageButton
+        android:id="@+id/imageButton_mealDeleteMeal"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/img_33"

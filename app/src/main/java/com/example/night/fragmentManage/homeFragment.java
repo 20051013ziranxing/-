@@ -46,6 +46,7 @@ public class homeFragment extends Fragment {
     List<Fragment> fragments_ViewPager2;
     List<String> stringList_buttonChoice;
     RecyclerView recyclerView;
+    HomeButtonChoiceAdapter homeButtonChoiceAdapter;
     CardView cardView;
     RecyclerView recyclerView_buttonChoice;
     List<shopMessageSum> shopMessageSumList;
@@ -99,7 +100,7 @@ public class homeFragment extends Fragment {
         toolbarHide = view.findViewById(R.id.homeFragment_Toolbar);
         recyclerView_buttonChoice = view.findViewById(R.id.Button_choice);
         recyclerView_buttonHide = view.findViewById(R.id.Button_choiceHide);
-        HomeButtonChoiceAdapter homeButtonChoiceAdapter = new HomeButtonChoiceAdapter(stringList_buttonChoice);
+        homeButtonChoiceAdapter = new HomeButtonChoiceAdapter(stringList_buttonChoice);
         LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getContext());
         linearLayoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView_buttonChoice.setLayoutManager(linearLayoutManager1);
@@ -114,23 +115,24 @@ public class homeFragment extends Fragment {
         viewPager2_1 = view.findViewById(R.id.home_ViewPager_1);
         homeViewPager2Adapter homeViewPager2Adapter = new homeViewPager2Adapter(getActivity(), fragments_ViewPager2);
         viewPager2_1.setAdapter(homeViewPager2Adapter);
+        //首页的店铺的滚动控件
         recyclerView = view.findViewById(R.id.home_recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         HomeRecyclerViewAdapter homeRecyclerViewAdapter = new HomeRecyclerViewAdapter(shopMessageSumList);
         recyclerView.setAdapter(homeRecyclerViewAdapter);
-
+        //对页面的滚动监听
         nestedScrollView_1 = view.findViewById(R.id.home_NestedScrollView_1);
         nestedScrollView_1.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if (scrollY > 70) {
+                if (scrollY > 180) {
                     toolbarHide.setVisibility(View.VISIBLE);
                 } else {
                     toolbarHide.setVisibility(View.GONE);
                 }
-                if (scrollY > 1500) {
+                if (scrollY > 1600) {
                     cardView.setVisibility(View.VISIBLE);
                 } else {
                     cardView.setVisibility(View.GONE);
@@ -168,5 +170,9 @@ public class homeFragment extends Fragment {
             shopMessageSumList.add(shopMessageSum1);
             shopMessageSumList.add(shopMessageSum2);
         }
+    }
+
+    public void changeChoice(int position, Boolean choice) {
+
     }
 }

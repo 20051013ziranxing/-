@@ -3,6 +3,7 @@ package com.example.night.fragmentManage.shop;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,10 +13,12 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.night.Adapter.ShopMealFAdapter;
 import com.example.night.Adapter.ShopMealFAdapter2;
 import com.example.night.Bean.ShopMessage1;
+import com.example.night.ParentRecyclerView;
 import com.example.night.R;
 import com.example.night.SQLiteHelper.model.shopMessageModel;
 import com.example.night.presenter.shopMealFPresenter;
@@ -36,10 +39,12 @@ import java.util.List;
  */
 public class ShopMealFragment extends Fragment {
     final static String TAG = "nightAAA";
+    NestedScrollView nestedScrollView;
+    TextView textViewTitle;
     Banner banner;
     ShopMessage1 shopMessage1;
     RecyclerView recyclerView_classify;
-    RecyclerView recyclerView_mael2;
+    ParentRecyclerView recyclerView_mael2;
     shopMealFPresenter shopMealFPresenter;
     List<Integer> imageViewList;
     private static final String ARG_PARAM1 = "param1";
@@ -87,6 +92,26 @@ public class ShopMealFragment extends Fragment {
         shopMealFPresenter = new shopMealFPresenter(this);
         banner = view.findViewById(R.id.shopMealFragment_banner);
 
+        nestedScrollView = view.findViewById(R.id.shopMealFragment_nestedScrollView);
+        textViewTitle = view.findViewById(R.id.shopMealFragment_textView_title);
+        nestedScrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (scrollY > 400) {
+                    textViewTitle.setText("招牌推荐0");
+                    textViewTitle.setVisibility(View.VISIBLE);
+                    if (scrollY > 2800) {
+                        textViewTitle.setText("家常炒菜0");
+                    }
+                    if(scrollY > 5400) {
+                        textViewTitle.setText("小吃主食0");
+                    }
+                } else {
+                    textViewTitle.setVisibility(View.GONE);
+                }
+            }
+        });
+
         recyclerView_classify = view.findViewById(R.id.shopMealFragment_RecyclerView1);
         recyclerView_mael2 = view.findViewById(R.id.shopMealFragment_RecyclerView2);
         shopMessage1 = shopMealFPresenter.getShopMessage1();
@@ -102,8 +127,9 @@ public class ShopMealFragment extends Fragment {
         shopMealFAdapter.setOnItemClickListener(new ShopMealFAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Log.d(TAG, "我点击了？？？aaaaaaa"  + position);
+                Log.d(TAG, "我点击了？？？aaaaaaa" + position);
                 recyclerView_mael2.scrollToPosition(position);
+                Log.d(TAG, "我点击了？？？因该滚动完了" + position);
             }
         });
 
@@ -111,7 +137,6 @@ public class ShopMealFragment extends Fragment {
         linearLayoutManager1.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView_classify.setLayoutManager(linearLayoutManager1);
         recyclerView_classify.setAdapter(shopMealFAdapter);
-
 
         initData();
         banner.setAdapter(new BannerImageAdapter<Integer>(imageViewList) {

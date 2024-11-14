@@ -7,11 +7,15 @@
     android:background="@color/white"
     tools:context=".fragmentManage.PictureFragment_home">
 
-    <ImageView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:src="@drawable/img_9"
-        android:scaleType="fitXY"
-        android:id="@+id/imageView"/>
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_9"
+            android:scaleType="fitXY"
+            android:id="@+id/imageView"/>
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

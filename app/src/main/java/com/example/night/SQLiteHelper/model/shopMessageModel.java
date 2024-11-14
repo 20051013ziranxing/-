@@ -11,7 +11,7 @@ public class shopMessageModel {
     public shopMessageModel() {
         List<ShopMessage1.AllMeal> allMealList;
         allMealList = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 1; i++) {
             ShopMessage1.AllMeal allMeal = new ShopMessage1.AllMeal("西红柿炒鸡蛋", R.drawable.img_31, "18");
             ShopMessage1.AllMeal allMeal1 = new ShopMessage1.AllMeal("招牌辣椒炒肉", R.drawable.img_34, "49.8");
             ShopMessage1.AllMeal allMeal2 = new ShopMessage1.AllMeal("豉油生菜", R.drawable.img_34, "26.8");

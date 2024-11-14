@@ -14,11 +14,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.night.R;
+import com.example.night.fragmentManage.homeFragment;
 
 import java.util.List;
 
 public class HomeButtonChoiceAdapter extends RecyclerView.Adapter<HomeButtonChoiceAdapter.MyViewHolder> {
     List<String> stringList;
+    RecyclerView recyclerView;
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ToggleButton textView;
         View view;
