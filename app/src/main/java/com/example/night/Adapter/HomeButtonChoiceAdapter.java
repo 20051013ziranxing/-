@@ -2,6 +2,7 @@ package com.example.night.Adapter;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +14,17 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.night.Bean.ToggleButtonCheck;
 import com.example.night.R;
 import com.example.night.fragmentManage.homeFragment;
 
 import java.util.List;
 
 public class HomeButtonChoiceAdapter extends RecyclerView.Adapter<HomeButtonChoiceAdapter.MyViewHolder> {
-    List<String> stringList;
+    final static String TAG = "nightAAA";
+    List<ToggleButtonCheck> stringList;
     RecyclerView recyclerView;
+    homeFragment homeFragment;
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ToggleButton textView;
         View view;
@@ -30,8 +34,9 @@ public class HomeButtonChoiceAdapter extends RecyclerView.Adapter<HomeButtonChoi
             view = itemView;
         }
     }
-    public HomeButtonChoiceAdapter(List<String> stringList) {
+    public HomeButtonChoiceAdapter(List<ToggleButtonCheck> stringList, homeFragment homeFragment) {
         this.stringList = stringList;
+        this.homeFragment = homeFragment;
     }
     @NonNull
     @Override
@@ -43,7 +48,7 @@ public class HomeButtonChoiceAdapter extends RecyclerView.Adapter<HomeButtonChoi
 
     @Override
     public void onBindViewHolder(@NonNull HomeButtonChoiceAdapter.MyViewHolder holder, int position) {
-        String s = stringList.get(position);
+        String s = stringList.get(position).getName();
         holder.textView.setText(s);
         holder.textView.setTextOff(s);
         holder.textView.setTextOn(s);
@@ -52,8 +57,12 @@ public class HomeButtonChoiceAdapter extends RecyclerView.Adapter<HomeButtonChoi
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     buttonView.setBackgroundResource(R.drawable.background4);
+                    homeFragment.changeChoice(position, true);
+                    Log.d(TAG, position + "true");
                 } else {
                     buttonView.setBackgroundResource(R.drawable.background);
+                    homeFragment.changeChoice(position, false);
+                    Log.d(TAG, position + "false");
                 }
             }
         });

@@ -21,11 +21,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.example.night.Adapter.HomeButtonChoiceAdapter;
 import com.example.night.Adapter.HomeRecyclerViewAdapter;
 import com.example.night.Adapter.homeImageViewAdapter;
 import com.example.night.Adapter.homeViewPager2Adapter;
+import com.example.night.Bean.ToggleButtonCheck;
 import com.example.night.Bean.shopMessageSum;
 import com.example.night.R;
 
@@ -38,13 +40,14 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class homeFragment extends Fragment {
+    final static String TAG = "nightAAA";
     ImageView imageViewHide;
     RecyclerView recyclerView_buttonHide;
     ViewPager2 viewPager2_1;
     Toolbar toolbarHide;
     NestedScrollView nestedScrollView_1;
     List<Fragment> fragments_ViewPager2;
-    List<String> stringList_buttonChoice;
+    List<ToggleButtonCheck> stringList_buttonChoice;
     RecyclerView recyclerView;
     HomeButtonChoiceAdapter homeButtonChoiceAdapter;
     CardView cardView;
@@ -100,7 +103,7 @@ public class homeFragment extends Fragment {
         toolbarHide = view.findViewById(R.id.homeFragment_Toolbar);
         recyclerView_buttonChoice = view.findViewById(R.id.Button_choice);
         recyclerView_buttonHide = view.findViewById(R.id.Button_choiceHide);
-        homeButtonChoiceAdapter = new HomeButtonChoiceAdapter(stringList_buttonChoice);
+        homeButtonChoiceAdapter = new HomeButtonChoiceAdapter(stringList_buttonChoice, this);
         LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getContext());
         linearLayoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView_buttonChoice.setLayoutManager(linearLayoutManager1);
@@ -143,10 +146,10 @@ public class homeFragment extends Fragment {
 
     public void initData() {
         stringList_buttonChoice = new ArrayList<>();
-        stringList_buttonChoice.add("神卷商家");
-        stringList_buttonChoice.add("配送进校");
-        stringList_buttonChoice.add("减配送费");
-        stringList_buttonChoice.add("津贴优惠");
+        stringList_buttonChoice.add(new ToggleButtonCheck("神卷商家", false));
+        stringList_buttonChoice.add(new ToggleButtonCheck("配送进校", false));
+        stringList_buttonChoice.add(new ToggleButtonCheck("减配送费", false));
+        stringList_buttonChoice.add(new ToggleButtonCheck("津贴优惠", false));
 
         fragments_ViewPager2 = new ArrayList<>();
         PictureFragment_home pictureFragmentHome = new PictureFragment_home();
@@ -173,6 +176,8 @@ public class homeFragment extends Fragment {
     }
 
     public void changeChoice(int position, Boolean choice) {
-
+        stringList_buttonChoice.get(position).setCheckChoice(choice);
+        Log.d(TAG, "我进行了刷新" + position + choice);
+        homeButtonChoiceAdapter.notifyItemChanged(position);
     }
 }
