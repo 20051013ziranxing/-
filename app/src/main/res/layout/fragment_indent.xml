@@ -2,17 +2,25 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginBottom="130dp"
+    android:layout_marginBottom="100dp"
     android:layout_height="match_parent"
     android:background="@color/yellow"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragmentManage.indentFragment">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:background="#00ffffff"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <TextView
         android:id="@+id/textView_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="18dp"
@@ -28,7 +36,7 @@
         android:background="#00ffffff"
         android:layout_marginTop="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/view"/>
 
     <ImageButton
         android:id="@+id/intent_search"
@@ -39,7 +47,7 @@
         android:src="@drawable/img_6"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@id/intent_xiaoxi"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/view" />
 
     <LinearLayout
         android:id="@+id/layoutLinear"
@@ -50,7 +58,7 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/intent_fragment_search"
         app:layout_constraintEnd_toStartOf="@id/intent_xiaoxi"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView

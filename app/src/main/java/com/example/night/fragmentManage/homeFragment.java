@@ -2,6 +2,8 @@ package com.example.night.fragmentManage;
 
 import static android.app.ProgressDialog.show;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,6 +21,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -132,6 +136,7 @@ public class homeFragment extends Fragment {
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                 if (scrollY > 180) {
                     toolbarHide.setVisibility(View.VISIBLE);
+
                 } else {
                     toolbarHide.setVisibility(View.GONE);
                 }
@@ -178,6 +183,10 @@ public class homeFragment extends Fragment {
     public void changeChoice(int position, Boolean choice) {
         stringList_buttonChoice.get(position).setCheckChoice(choice);
         Log.d(TAG, "我进行了刷新" + position + choice);
-        homeButtonChoiceAdapter.notifyItemChanged(position);
+        try {
+            homeButtonChoiceAdapter.notifyItemChanged(position);
+        } catch (Exception e) {
+            Log.d(TAG, e + "aa");
+        }
     }
 }

@@ -6,20 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/yellow"
     tools:context=".ActivityManage.MainActivity">
 
-    <View
+    <!--<View
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="#00ffffff"
         android:id="@+id/id1"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"/>-->
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_main"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/id1"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_height="0dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

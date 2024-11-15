@@ -11,7 +11,7 @@
         android:layout_height="35dp"
         android:padding="10dp"
         android:gravity="center"
-        android:background="@drawable/background"
+        android:background="@drawable/toggle_button"
         android:textSize="13sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"

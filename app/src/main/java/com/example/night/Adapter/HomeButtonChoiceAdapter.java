@@ -47,22 +47,21 @@ public class HomeButtonChoiceAdapter extends RecyclerView.Adapter<HomeButtonChoi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HomeButtonChoiceAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HomeButtonChoiceAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         String s = stringList.get(position).getName();
         holder.textView.setText(s);
         holder.textView.setTextOff(s);
         holder.textView.setTextOn(s);
+        holder.textView.setChecked(stringList.get(position).getCheckChoice());
         holder.textView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    buttonView.setBackgroundResource(R.drawable.background4);
                     homeFragment.changeChoice(position, true);
-                    Log.d(TAG, position + "true");
+                    Log.d(TAG, position + s + "true");
                 } else {
-                    buttonView.setBackgroundResource(R.drawable.background);
                     homeFragment.changeChoice(position, false);
-                    Log.d(TAG, position + "false");
+                    Log.d(TAG, position + s + "false");
                 }
             }
         });

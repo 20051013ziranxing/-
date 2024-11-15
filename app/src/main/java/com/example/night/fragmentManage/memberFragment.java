@@ -59,7 +59,6 @@ public class memberFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_member, container, false);
-
         floatingActionButton = view.findViewById(R.id.memberFragment_floatingActionButton);
         nestedScrollView = view.findViewById(R.id.net);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
