@@ -9,17 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.night.Bean.shopMessageSum;
+import com.example.night.Bean.ShopMessageSum;
 import com.example.night.R;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
 public class MyFragmentRecyclerViewAdapter extends RecyclerView.Adapter<MyFragmentRecyclerViewAdapter.MyViewHolder> {
-    List<shopMessageSum> shopMessageSumList;
+    List<ShopMessageSum> shopMessageSumList;
 
-    public MyFragmentRecyclerViewAdapter(List<shopMessageSum> shopMessageSumList) {
+    public MyFragmentRecyclerViewAdapter(List<ShopMessageSum> shopMessageSumList) {
         this.shopMessageSumList = shopMessageSumList;
     }
 
@@ -44,7 +42,7 @@ public class MyFragmentRecyclerViewAdapter extends RecyclerView.Adapter<MyFragme
 
     @Override
     public void onBindViewHolder(@NonNull MyFragmentRecyclerViewAdapter.MyViewHolder holder, int position) {
-        shopMessageSum shopMessageSum = shopMessageSumList.get(position);
+        ShopMessageSum shopMessageSum = shopMessageSumList.get(position);
         holder.imageView.setImageResource(shopMessageSum.getImageID());
         holder.textView.setText(shopMessageSum.getName());
     }

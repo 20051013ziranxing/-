@@ -1,10 +1,10 @@
 package com.example.night.Bean;
 
-public class shopMessageSum {
+public class ShopMessageSum {
     private String name;
     private int ImageID;
 
-    public shopMessageSum(String name, int imageID) {
+    public ShopMessageSum(String name, int imageID) {
         this.name = name;
         ImageID = imageID;
     }

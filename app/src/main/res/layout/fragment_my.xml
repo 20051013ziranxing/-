@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ECECE3"
+    android:layout_marginBottom="100dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragmentManage.myFragment">
+    tools:context=".fragmentManage.MyFragment">
 
     <View
         android:id="@+id/view"

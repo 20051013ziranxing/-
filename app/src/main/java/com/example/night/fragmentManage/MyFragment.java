@@ -6,16 +6,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.night.Adapter.MyFragmentRecyclerViewAdapter;
-import com.example.night.Bean.shopMessageSum;
+import com.example.night.Bean.ShopMessageSum;
 import com.example.night.R;
 import com.example.night.presenter.MyFragmentPresenter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -24,16 +22,16 @@ import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link myFragment#newInstance} factory method to
+ * Use the {@link MyFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class myFragment extends Fragment {
+public class MyFragment extends Fragment {
     RecyclerView recyclerView;
     NestedScrollView nestedScrollView;
     Toolbar toolbar;
     MyFragmentPresenter myFragmentPresenter;
     FloatingActionButton floatingActionButton;
-    List<shopMessageSum> shopMessageSumList;
+    List<ShopMessageSum> shopMessageSumList;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -41,7 +39,7 @@ public class myFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public myFragment() {
+    public MyFragment() {
 
     }
 
@@ -53,8 +51,8 @@ public class myFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment myFragment.
      */
-    public static myFragment newInstance(String param1, String param2) {
-        myFragment fragment = new myFragment();
+    public static MyFragment newInstance(String param1, String param2) {
+        MyFragment fragment = new MyFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

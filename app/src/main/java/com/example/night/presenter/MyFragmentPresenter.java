@@ -1,21 +1,21 @@
 package com.example.night.presenter;
 
-import com.example.night.Bean.shopMessageSum;
+import com.example.night.Bean.ShopMessageSum;
 import com.example.night.SQLiteHelper.model.AllShopMessage;
-import com.example.night.fragmentManage.myFragment;
+import com.example.night.fragmentManage.MyFragment;
 
 import java.util.List;
 
 public class MyFragmentPresenter {
-    myFragment myFragment;
+    MyFragment myFragment;
     AllShopMessage allShopMessage;
 
-    public MyFragmentPresenter(com.example.night.fragmentManage.myFragment myFragment) {
+    public MyFragmentPresenter(MyFragment myFragment) {
         this.myFragment = myFragment;
         allShopMessage = new AllShopMessage();
     }
-    public List<shopMessageSum> getShopMessageSum() {
-        List<shopMessageSum> list = allShopMessage.getShopMessageSumList();
+    public List<ShopMessageSum> getShopMessageSum() {
+        List<ShopMessageSum> list = allShopMessage.getShopMessageSumList();
         return list;
     }
 }

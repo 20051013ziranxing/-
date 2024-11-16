@@ -2,8 +2,6 @@ package com.example.night.fragmentManage;
 
 import static android.app.ProgressDialog.show;
 
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,25 +12,19 @@ import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.example.night.Adapter.HomeButtonChoiceAdapter;
 import com.example.night.Adapter.HomeRecyclerViewAdapter;
-import com.example.night.Adapter.homeImageViewAdapter;
 import com.example.night.Adapter.homeViewPager2Adapter;
 import com.example.night.Bean.ToggleButtonCheck;
-import com.example.night.Bean.shopMessageSum;
+import com.example.night.Bean.ShopMessageSum;
 import com.example.night.R;
 
 import java.util.ArrayList;
@@ -40,10 +32,10 @@ import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link homeFragment#newInstance} factory method to
+ * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class homeFragment extends Fragment {
+public class HomeFragment extends Fragment {
     final static String TAG = "nightAAA";
     ImageView imageViewHide;
     RecyclerView recyclerView_buttonHide;
@@ -56,13 +48,13 @@ public class homeFragment extends Fragment {
     HomeButtonChoiceAdapter homeButtonChoiceAdapter;
     CardView cardView;
     RecyclerView recyclerView_buttonChoice;
-    List<shopMessageSum> shopMessageSumList;
+    List<ShopMessageSum> shopMessageSumList;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
 
-    public homeFragment() {
+    public HomeFragment() {
 
     }
 
@@ -74,8 +66,8 @@ public class homeFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment homeFragment.
      */
-    public static homeFragment newInstance(String param1, String param2) {
-        homeFragment fragment = new homeFragment();
+    public static HomeFragment newInstance(String param1, String param2) {
+        HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -170,9 +162,9 @@ public class homeFragment extends Fragment {
         fragments_ViewPager2.add(pictureFragmentHome2);
 
         shopMessageSumList = new ArrayList<>();
-        shopMessageSum shopMessageSum = new shopMessageSum("兰湘子·湘菜小炒", R.drawable.img_10);
-        shopMessageSum shopMessageSum1 = new shopMessageSum("茶话弄", R.drawable.img_12);
-        shopMessageSum shopMessageSum2 = new shopMessageSum("蜜雪冰城", R.drawable.img_13);
+        ShopMessageSum shopMessageSum = new ShopMessageSum("兰湘子·湘菜小炒", R.drawable.img_10);
+        ShopMessageSum shopMessageSum1 = new ShopMessageSum("茶话弄", R.drawable.img_12);
+        ShopMessageSum shopMessageSum2 = new ShopMessageSum("蜜雪冰城", R.drawable.img_13);
         for (int i = 0; i < 3; i++) {
             shopMessageSumList.add(shopMessageSum);
             shopMessageSumList.add(shopMessageSum1);

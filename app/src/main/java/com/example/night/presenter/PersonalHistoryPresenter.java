@@ -4,7 +4,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.night.Bean.PersonalHistory;
 import com.example.night.SQLiteHelper.model.PersonalHistoryModel;
-import com.example.night.fragmentManage.indentFragment;
 
 public class PersonalHistoryPresenter {
    Fragment intentFragment;

@@ -14,15 +14,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
 
 import com.example.night.Adapter.IntentFragmentRecyclerAdapter1;
-import com.example.night.Adapter.intentFragmentAdapter;
+import com.example.night.Adapter.IntentFragmentAdapter;
 import com.example.night.Bean.PersonalHistory;
 import com.example.night.R;
 import com.example.night.fragmentManage.intent.All_intent_Fragment;
-import com.example.night.fragmentManage.intent.intent_refund_Fragment;
-import com.example.night.fragmentManage.intent.wait_evaluateFragment;
+import com.example.night.fragmentManage.intent.Intent_refund_Fragment;
+import com.example.night.fragmentManage.intent.Wait_evaluateFragment;
 import com.example.night.presenter.PersonalHistoryPresenter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -32,10 +31,10 @@ import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link indentFragment#newInstance} factory method to
+ * Use the {@link IndentFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class indentFragment extends Fragment {
+public class IndentFragment extends Fragment {
     NestedScrollView nestedScrollView;
     LinearLayout layout;
     PersonalHistoryPresenter personalHistoryPresenter;
@@ -44,7 +43,7 @@ public class indentFragment extends Fragment {
     ViewPager2 viewPager2;
     RecyclerView recyclerView_boughtShop;
     List<Fragment> viewPagerSubclass;
-    intentFragmentAdapter intentFragmentAdapter;
+    IntentFragmentAdapter intentFragmentAdapter;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -52,7 +51,7 @@ public class indentFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public indentFragment() {
+    public IndentFragment() {
 
     }
 
@@ -65,8 +64,8 @@ public class indentFragment extends Fragment {
      * @return A new instance of fragment indentFragment.
      */
 
-    public static indentFragment newInstance(String param1, String param2) {
-        indentFragment fragment = new indentFragment();
+    public static IndentFragment newInstance(String param1, String param2) {
+        IndentFragment fragment = new IndentFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -118,7 +117,7 @@ public class indentFragment extends Fragment {
         recyclerView_boughtShop.setLayoutManager(linearLayoutManager);
         recyclerView_boughtShop.setAdapter(intentFragmentRecyclerAdapter1);
 
-        intentFragmentAdapter = new intentFragmentAdapter(getActivity(), viewPagerSubclass);
+        intentFragmentAdapter = new IntentFragmentAdapter(getActivity(), viewPagerSubclass);
         viewPager2.setAdapter(intentFragmentAdapter);
         new TabLayoutMediator(tableLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
@@ -139,8 +138,8 @@ public class indentFragment extends Fragment {
     public void initData() {
         viewPagerSubclass = new ArrayList<>();
         All_intent_Fragment fragment1 = new All_intent_Fragment();
-        intent_refund_Fragment fragment2 = new intent_refund_Fragment();
-        wait_evaluateFragment fragment3 = new wait_evaluateFragment();
+        Intent_refund_Fragment fragment2 = new Intent_refund_Fragment();
+        Wait_evaluateFragment fragment3 = new Wait_evaluateFragment();
         viewPagerSubclass.add(fragment1);
         viewPagerSubclass.add(fragment2);
         viewPagerSubclass.add(fragment3);

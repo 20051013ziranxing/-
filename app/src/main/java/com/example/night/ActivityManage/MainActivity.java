@@ -12,19 +12,15 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.night.R;
-import com.example.night.fragmentManage.homeFragment;
-import com.example.night.fragmentManage.indentFragment;
-import com.example.night.fragmentManage.memberFragment;
-import com.example.night.fragmentManage.myFragment;
+import com.example.night.fragmentManage.HomeFragment;
+import com.example.night.fragmentManage.IndentFragment;
+import com.example.night.fragmentManage.MemberFragment;
+import com.example.night.fragmentManage.MyFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,18 +42,18 @@ public class MainActivity extends AppCompatActivity {
         makeStatusBarTransparent();
         bottomNavigationView = findViewById(R.id.bottom_main);
         fragmentManager = getSupportFragmentManager();
-        replaceFragment(new homeFragment());
+        replaceFragment(new HomeFragment());
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 if (menuItem.getItemId() == R.id.menu_main_home) {
-                    replaceFragment(new homeFragment());
+                    replaceFragment(new HomeFragment());
                 } else if (menuItem.getItemId() == R.id.menu_main_member) {
-                    replaceFragment(new memberFragment());
+                    replaceFragment(new MemberFragment());
                 } else if (menuItem.getItemId() == R.id.menu_main_indent) {
-                    replaceFragment(new indentFragment());
+                    replaceFragment(new IndentFragment());
                 } else {
-                    replaceFragment(new myFragment());
+                    replaceFragment(new MyFragment());
                 }
                 return true;
             }

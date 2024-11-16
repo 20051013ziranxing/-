@@ -1,14 +1,11 @@
 package com.example.night.Adapter;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
@@ -16,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.night.Bean.ToggleButtonCheck;
 import com.example.night.R;
-import com.example.night.fragmentManage.homeFragment;
+import com.example.night.fragmentManage.HomeFragment;
 
 import java.util.List;
 
@@ -24,7 +21,7 @@ public class HomeButtonChoiceAdapter extends RecyclerView.Adapter<HomeButtonChoi
     final static String TAG = "nightAAA";
     List<ToggleButtonCheck> stringList;
     RecyclerView recyclerView;
-    homeFragment homeFragment;
+    HomeFragment homeFragment;
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ToggleButton textView;
         View view;
@@ -34,7 +31,7 @@ public class HomeButtonChoiceAdapter extends RecyclerView.Adapter<HomeButtonChoi
             view = itemView;
         }
     }
-    public HomeButtonChoiceAdapter(List<ToggleButtonCheck> stringList, homeFragment homeFragment) {
+    public HomeButtonChoiceAdapter(List<ToggleButtonCheck> stringList, HomeFragment homeFragment) {
         this.stringList = stringList;
         this.homeFragment = homeFragment;
     }

@@ -14,10 +14,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link memberFragment#newInstance} factory method to
+ * Use the {@link MemberFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class memberFragment extends Fragment {
+public class MemberFragment extends Fragment {
     FloatingActionButton floatingActionButton;
     NestedScrollView nestedScrollView;
     private static final String ARG_PARAM1 = "param1";
@@ -25,7 +25,7 @@ public class memberFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public memberFragment() {
+    public MemberFragment() {
 
     }
 
@@ -37,8 +37,8 @@ public class memberFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment memberFragment.
      */
-    public static memberFragment newInstance(String param1, String param2) {
-        memberFragment fragment = new memberFragment();
+    public static MemberFragment newInstance(String param1, String param2) {
+        MemberFragment fragment = new MemberFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

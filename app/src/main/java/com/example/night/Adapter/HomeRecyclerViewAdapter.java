@@ -12,13 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.night.ActivityManage.ShopSelect;
-import com.example.night.Bean.shopMessageSum;
+import com.example.night.Bean.ShopMessageSum;
 import com.example.night.R;
 
 import java.util.List;
 
 public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.MyViewHolder> {
-    List<shopMessageSum> shopMessageSumList;
+    List<ShopMessageSum> shopMessageSumList;
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView textView;
@@ -31,7 +31,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         }
     }
 
-    public HomeRecyclerViewAdapter(List<shopMessageSum> shopMessageSumList) {
+    public HomeRecyclerViewAdapter(List<ShopMessageSum> shopMessageSumList) {
         this.shopMessageSumList = shopMessageSumList;
     }
 
@@ -46,7 +46,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull HomeRecyclerViewAdapter.MyViewHolder holder, int position) {
-        shopMessageSum shopMessageSum = shopMessageSumList.get(position);
+        ShopMessageSum shopMessageSum = shopMessageSumList.get(position);
         holder.imageView.setImageResource(shopMessageSum.getImageID());
         holder.textView.setText(shopMessageSum.getName());
         holder.view.setOnClickListener(new View.OnClickListener() {
