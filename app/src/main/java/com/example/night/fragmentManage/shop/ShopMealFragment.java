@@ -31,6 +31,7 @@ import com.youth.banner.indicator.CircleIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,6 +42,7 @@ public class ShopMealFragment extends Fragment {
     final static String TAG = "nightAAA";
     NestedScrollView nestedScrollView;
     TextView textViewTitle;
+    List<Object> objectList;
     Banner banner;
     ShopMessage1 shopMessage1;
     RecyclerView recyclerView_classify;
@@ -116,8 +118,8 @@ public class ShopMealFragment extends Fragment {
         recyclerView_mael2 = view.findViewById(R.id.shopMealFragment_RecyclerView2);
         shopMessage1 = shopMealFPresenter.getShopMessage1();
         Log.d(TAG, String.valueOf(shopMessage1.getSpeciesMeal().size()));
-
-        ShopMealFAdapter2 shopMealFAdapter2 = new ShopMealFAdapter2(shopMessage1);
+        initData();
+        ShopMealFAdapter2 shopMealFAdapter2 = new ShopMealFAdapter2(objectList);
         LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(getContext());
         linearLayoutManager2.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView_mael2.setLayoutManager(linearLayoutManager2);
@@ -128,7 +130,11 @@ public class ShopMealFragment extends Fragment {
             @Override
             public void onItemClick(int position) {
                 Log.d(TAG, "我点击了？？？aaaaaaa" + position);
-                recyclerView_mael2.scrollToPosition(position);
+                try {
+                    recyclerView_mael2.scrollToPosition(position * 8);
+                } catch (Exception e) {
+                    Log.d(TAG, String.valueOf(e));
+                }
                 Log.d(TAG, "我点击了？？？因该滚动完了" + position);
             }
         });
@@ -137,8 +143,6 @@ public class ShopMealFragment extends Fragment {
         linearLayoutManager1.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView_classify.setLayoutManager(linearLayoutManager1);
         recyclerView_classify.setAdapter(shopMealFAdapter);
-
-        initData();
         banner.setAdapter(new BannerImageAdapter<Integer>(imageViewList) {
             @Override
             public void onBindView(BannerImageHolder holder, Integer data, int position, int size) {
@@ -154,5 +158,15 @@ public class ShopMealFragment extends Fragment {
         imageViewList = new ArrayList<Integer>();
         imageViewList.add(R.drawable.img_29);
         imageViewList.add(R.drawable.img_30);
+        objectList = new ArrayList<>();
+        for (int i = 0; i < shopMessage1.getSpeciesMeal().size(); i++) {
+            objectList.add(shopMessage1.getSpeciesMeal().get(i).getKindName());
+            Log.d(TAG, "shopMessage1.getSpeciesMeal().get(i).getKindName()" + shopMessage1.getSpeciesMeal().get(i).getKindName());
+            for (int j = 0; j < shopMessage1.getSpeciesMeal().get(i).getAllMealList().size(); j++) {
+                objectList.add(shopMessage1.getSpeciesMeal().get(i).getAllMealList().get(j));
+                Log.d(TAG, "shopMessage1.getSpeciesMeal().get(i).getAllMealList().get(j)" +
+                        shopMessage1.getSpeciesMeal().get(i).getAllMealList().get(j).getMealName());
+            }
+        }
     }
 }
